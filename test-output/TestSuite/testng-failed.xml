@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" guice-stage="DEVELOPMENT" verbose="10" name="Failed suite [TestSuite]" parallel="tests">
+  <parameter name="allowMakeCallsTxt" value="Allow Hiya to make and manage phone calls?"/>
+  <parameter name="permissionMessageTxt" value="Hiya requires access to your phone and contacts in order to work properly. \n\nWe do not share this information with third parties."/>
+  <parameter name="SignInTxt" value="Sign in to keep your block list backed up and secure."/>
+  <parameter name="appName" value="/apk/Hiya.apk"/>
+  <parameter name="UserNotSignedTxt" value="Not signed in"/>
+  <parameter name="platformVersion" value="6.0"/>
+  <parameter name="allowContacAccessTxt" value="Allow Hiya to access your contacts?"/>
+  <parameter name="AppiumServerURL" value="http://127.0.0.1:4723/wd/hub"/>
+  <parameter name="platformName" value="Android"/>
+  <parameter name="deviceName" value="Android Emulator"/>
+  <parameter name="marketingMessageTxt" value="Hiya blocks 55,025 numbers used for making fraud calls"/>
+  <parameter name="EnableDrawOverMessageTxt" value="You must enable &quot;Draw over other apps &quot; for Hiya to display Caller ID."/>
+  <listeners>
+    <listener class-name="Base.ScreenshotListener"/>
+  </listeners>
+  <test name="Appium(failed)" parallel="tests">
+    <classes>
+      <class name="Tests.HiyaTests">
+        <methods>
+          <include name="cleanUp"/>
+          <include name="ValidCallTest" invocation-numbers="0 2"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- Tests.HiyaTests -->
+    </classes>
+  </test> <!-- Appium(failed) -->
+</suite> <!-- Failed suite [TestSuite] -->
